@@ -1,25 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
-
-function App() {
+import React, { useEffect } from 'react';
+import Hero from "./components/Hero";
+import WhyMoonEx from "./components/WhyMoonEx";
+import Features from "./components/Features";
+import FAQ from "./components/FAQ";
+import Footer from "./components/Footer";
+import WebFont from 'webfontloader';
+const App = () => {
+  useEffect(() => {
+    WebFont.load({
+      google: {
+        families: ['Raleway', 'sans-serif', 'Fira Code'],
+      },
+    });
+  }, []);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div style={{ fontFamily: 'Fira Code, Raleway' }} className="bg-[#061625] w-full">
+      <Hero />
+      <WhyMoonEx />
+      <Features />
+      <FAQ />
+      <Footer />
     </div>
   );
-}
+};
 
 export default App;
